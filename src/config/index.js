@@ -1,11 +1,11 @@
 const xmppConfig = {
     transports: {
-        websocket: "ws://im.myxxjs.com:5280/xmpp",
+        websocket: "wss://xmpp.mektou.be:5281/xmpp-websocket",
         bosh :false
     },
-    iceServers:[{"urls": "stun:139.196.59.138:3478?transport=udp"},{"urls": "turn:139.196.59.138:3478?transport=udp"}],
-    host:"im.myxxjs.com",
-    resource:"mobile"
+    iceServers:[],
+    host:"xmpp.mektou.be",
+    resource:"rna-stanza"
 }
 
 const apiHost = "http://stg.myxxjs.com:9901/api"
