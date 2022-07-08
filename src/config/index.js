@@ -8,7 +8,7 @@ const xmppConfig = {
     resource:"rna-stanza"
 }
 
-const apiHost = "http://stg.myxxjs.com:9901/api"
+const apiHost = "https://apiv2-staging.mektoube.fr"
 const avatarHost = "http://stg.myxxjs.com:9002/api"
 
 

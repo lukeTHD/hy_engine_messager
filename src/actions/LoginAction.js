@@ -21,7 +21,7 @@ export const Login = (param) => async (dispatch, getState) => {
     try {
 
         // 基本检索URL
-        let url = `${apiHost}/userLogin`;
+        let url = `${apiHost}/checktoken.json`;
         const res = await httpRequest.post(url, {userName,password})
 
         console.log(res)
