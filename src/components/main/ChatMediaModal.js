@@ -54,11 +54,7 @@ function ChatMediaModal(props) {
     useEffect(() => {
 
         stanzaService.client.xmppClient.pc = new RTCPeerConnection({
-            iceServers: [
-                {
-                    urls: 'stun:139.196.59.138:3478?transport=udp',
-                },
-            ],
+            iceServers: [],
         });
 
         initLocalVideo();

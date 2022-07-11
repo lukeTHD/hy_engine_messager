@@ -19,13 +19,9 @@ export const show = (props) => async (dispatch) =>  {
     if(localUserObj) {
         //换取token
         const {accessToken, userId,status,userName,jid,impwd} = localUserObj
-        const url = `${apiHost}/user/${userId}/token/${accessToken}`
-        // console.log('url', url)
-        const res = await httpRequest.get(url)
-       //console.log('res', res)
        //成功 换accessToken 更新reducer 更新LocalStorage
-        if (res.success) {
-            const userObj = {accessToken : res.result.accessToken, status , userId , userName, jid, impwd}
+        if (accessToken) {
+            const userObj = {accessToken, status , userId , userName, jid, impwd}
             await setItemObject(LocalStorageKey.USER,userObj);
             dispatch(setCurrentUser({...userObj,avatar: 'http://myxxjs.com/assets/img/logo.png'}));
             stanzaService.config({username:userObj.jid,password:userObj.impwd});

@@ -13,21 +13,10 @@ import { createDialogByMessage,updateDialog,updateDialogUnread, sortedDialog } f
 const initialState = {
     dialogs:[
         {
-            name : 'euser2',
-            photo: 'http://erp.stsswl.com/assets/images/logo_72.png',
-            dialogId : 'euser2',
+            name : '3980',
+            photo: 'https://static-staging.mektoube.fr/2/3/__AM4kzM/__gMe5ffe48636e976482a5ae8ee0f0e6cabdb9e2c21c0c542afdf7f5c9f2acc40e5eb830.jpg',
+            dialogId : '3980',
             lastMessage: 'No message',
-            lastMessageId: 'alkj2349jlajjk34',
-            lastMessageDateSent: 1605144573228,
-            createdAt: 1605144573228,
-            unreadMessagesCount: 0,
-            unreadMessagesIds : []
-        },
-        {
-            name : 'yae_pkoc1kzfb9ln',
-            photo: 'http://erp.stsswl.com/assets/images/logo_72.png',
-            dialogId : 'yae_pkoc1kzfb9ln',
-            lastMessage: 'No message 123',
             lastMessageId: 'alkj2349jlajjk34',
             lastMessageDateSent: 1605144573228,
             createdAt: 1605144573228,

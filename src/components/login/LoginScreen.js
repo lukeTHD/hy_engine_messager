@@ -9,8 +9,7 @@ class LoginScreen extends Component {
     constructor(props) {
         super(props)
         this.state={
-            userName:'13164533222',
-            password:'123456'
+            userName:'416500'
         }
 
     }
@@ -38,32 +37,17 @@ class LoginScreen extends Component {
                     }}>
 
                     </View>
-                    <View  style={{flex: 1, flexDirection:'row',justifyContent: 'center'}}>
-                        <Image style={{width:200,height:200}} source={require('../../../assets/images/logo.png')}  />
-                    </View>
                     <Form>
                         <Item floatingLabel>
-                            <Label>用户</Label>
+                            <Label>Username</Label>
                             <Input value={this.state.userName} onChangeText={(e)=>this.setState({userName:e})}/>
-                        </Item>
-                        <Item floatingLabel>
-                            <Label>密码</Label>
-                            <Input secureTextEntry={true} onChangeText={(e)=>this.setState({password:e})}/>
                         </Item>
                     </Form>
                     <Button block style={{ margin: 15, marginTop: 50 }} onPress={() => {
-                        login({userName:this.state.userName,password:this.state.password})
+                        login({userName:this.state.userName,password:"xxx"})
                     }}>
-                        <Text>登录</Text>
+                        <Text>Login</Text>
                     </Button>
-                    <View  style={{flex: 1, flexDirection:'row',justifyContent: 'space-between'}}>
-                        <Button  transparent  >
-                            <Text>忘记密码?</Text>
-                        </Button>
-                        <Button transparent >
-                            <Text>注 册</Text>
-                        </Button>
-                    </View>
                 </Content>
             </Container>
 
