@@ -18,7 +18,7 @@ export const Login = (param) => async (dispatch, getState) => {
 
     const {props:{navigation}, value:{userName}} = param;
     var password = ""
-    var avatar = 'https://staging.mektoube.fr/images/svg/avatar-man-new.svg'
+    var avatar = 'https://static-staging.mektoube.fr/2/1782/__QMwMjM4cTM/1ITMdbc7ca50f454e089710827b328d7edb098c2b84680d80b4802e93edcfaca8b74344b2.jpg'
     if(userName == "416500"){
         password = "e8428a9e55a063f34f6d9839db92fda2,jVQJsqUgDLwSZIXjuMD9jzBN8PvwjbOUJYXY6SSdBOm8ccazEUlWFpdqYmrNxaqLVyIgiBNvvjsH2gY6pXd8StoNZ7DbrQIvYaFgSDwZfNrTlpKr6z/Q5YO2w7o58G3g42/EYqd1v9b7T0bUHz/wZAT7aiy7aeQ1cTxxpvAk2BfLXPGFB7sED2x4WbCaCVfgmEfWhD0ZzoD7+KWp5hWxevEEZcjyUAjxN5HYa3yfpkvEMixDbQqeoULFW6JGiX3B1iU7DhXZohZ68eIUnuz09FcPk3loXpFXWbD8pTyD7RAFd4aH479qIAuHgGPatheWerGo7XOlZrZwlUe+l4Z33+Rb/a+qO1tBR0L3qH6DPv1SZ+TjLxx1rd9jEp64pY8RDTrI8h1t/JNTMiakKIkKPTO9IjTE0MCPKG/+l84He0f8iPq7vz2F5xMcWOn4TVd/VHF486VXh+b2qJiu+lkJ5YZmbfBjhnSipfHXfRAeOGo8Zi1jv8POIvbz9pAG+g9dlpHNuD9GJ9XPpD9U+e7LPLpB+8vdkKevn26nMyboHB3/nu+I3qPiTl61RzayTCj9VDVOTvGza2sbtZ2VVPlwalyKFKS+IZ3edpi0Xw=="
     }

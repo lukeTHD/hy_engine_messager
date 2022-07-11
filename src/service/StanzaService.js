@@ -29,8 +29,9 @@ class StanzaService {
             transports:xmppConfig.transports,
             resource: xmppConfig.resource,
             jid: username+"@"+xmppConfig.host,
+            username: username,
             password: password,
-            allowResumption: false
+            allowResumption: true
         });
         this.pc = null;
         this.isConnected = false;
@@ -106,7 +107,7 @@ class StanzaService {
             dialogId:getUserIdFromResource(msg.from),
             _id : msg.id,
             createdAt:msg.delay?new Date(msg.delay.timestamp).getTime():Date.now() ,
-            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'http://erp.stsswl.com/assets/images/logo_72.png'}
+            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'https://staging.mektoube.fr/images/svg/avatar-man-new.svg'}
         });
         let msgBodyObj ;
         try{
@@ -153,7 +154,7 @@ class StanzaService {
             dialogId:getUserIdFromResource(msg.from),
             _id : msg.id,
             createdAt:msg.delay?new Date(msg.delay.timestamp).getTime():Date.now() ,
-            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'http://erp.stsswl.com/assets/images/logo_72.png'}
+            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'https://staging.mektoube.fr/images/svg/avatar-man-new.svg'}
         });
         console.log(this);
         if(msgBodyObj.type == stanzaConst.MSG_TYPE_TEXT){

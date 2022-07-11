@@ -283,7 +283,7 @@ function ChatMediaModal(props) {
     if(status==DISCONNECT_STATUS) {//状态为未接通
         renderUserView = (
             <View style={{flex:1,alignItems:"center",paddingTop:0}}>
-                <Thumbnail style={{width:120,height:120,borderRadius:60}} source={{ uri: 'https://s.gravatar.com/avatar/49f4297846f70d6c070b0b604dd99175?size=100&default=retro' }} />
+                <Thumbnail style={{width:120,height:120,borderRadius:60}} source={{ uri: 'https://static-staging.mektoube.fr/2/3/__AM4kzM/__gMe5ffe48636e976482a5ae8ee0f0e6cabdb9e2c21c0c542afdf7f5c9f2acc40e5eb830.jpg' }} />
                 <Text style={{color:"white",paddingTop:10,fontSize:24}}>{timerCount}</Text>
             </View>);
 

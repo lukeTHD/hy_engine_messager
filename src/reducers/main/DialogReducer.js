@@ -22,6 +22,17 @@ const initialState = {
             createdAt: 1605144573228,
             unreadMessagesCount: 0,
             unreadMessagesIds : []
+        },
+        {
+            name : '416500',
+            photo: 'https://static-staging.mektoube.fr/2/1782/__QMwMjM4cTM/1ITMdbc7ca50f454e089710827b328d7edb098c2b84680d80b4802e93edcfaca8b74344b2.jpg',
+            dialogId : '416500',
+            lastMessage: 'No message',
+            lastMessageId: 'alkj2349jlajjk34',
+            lastMessageDateSent: 1605144573228,
+            createdAt: 1605144573228,
+            unreadMessagesCount: 0,
+            unreadMessagesIds : []
         }
     ]
 };
