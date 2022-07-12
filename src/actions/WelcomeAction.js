@@ -1,10 +1,8 @@
 import {getItemObject, setItemObject} from '../util/LocalStorage';
 import LocalStorageKey from '../util/LocalStorageKey';
-import {apiHost} from '../config/index';
-import httpRequest from '../util/HttpRequest';
 import * as LoginAction from "./LoginAction"
-import {Alert} from "react-native";
 import {setCurrentUser} from './CurrentUserActions';
+import {deleteDialog} from './DialogAction';
 import stanzaService from '../service'
 
 
@@ -23,7 +21,8 @@ export const show = (props) => async (dispatch) =>  {
         if (accessToken) {
             const userObj = {accessToken, status , userId , userName, jid, impwd}
             await setItemObject(LocalStorageKey.USER,userObj);
-            dispatch(setCurrentUser({...userObj,avatar: 'http://myxxjs.com/assets/img/logo.png'}));
+            dispatch(setCurrentUser({...userObj,avatar: userObj.avatar}));
+            await dispatch(deleteDialog(userId));
             stanzaService.config({username:userObj.jid,password:userObj.impwd});
             stanzaService.client.init(props.navigation);
             console.log(stanzaService.client.xmppClient);

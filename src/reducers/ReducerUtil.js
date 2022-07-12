@@ -2,8 +2,8 @@ import Dialog from '../models/Dialog';
 const createDialogByMessage = (action)=>{
     const { dialog, count } = action;
     const newObj = {
-        name : 'user4',
-        photo: 'http://erp.stsswl.com/assets/images/logo_72.png',
+        name : 'user' + dialog.userId,
+        photo: 'https://static-staging.mektoube.fr/avatars/' + dialog.userId + '.png',
         userId : dialog.userId,
         lastMessage: dialog.body,
         lastMessageId: dialog.id,
@@ -22,6 +22,13 @@ const updateDialog = (action, dialogs) => {
   })
   return [...alreadyUpdatedDialog]
 }
+
+const deleteDialog = (action, dialogs) => {
+  const dialogIndex =dialogs.findIndex(elem => elem.dialogId==action.dialogId);
+  dialogs.splice(dialogIndex,1);
+  return dialogs
+}
+
 
 const updateDialogUnread = (actions,dialogs)=>{
     const dialogIndex =dialogs.findIndex(elem => elem.dialogId==actions.dialog.dialogId);
@@ -114,5 +121,6 @@ export {
     sortedDialog,
     updateStatusMessages,
     fetchUsers,
-    updateUser
+    updateUser,
+    deleteDialog
 }

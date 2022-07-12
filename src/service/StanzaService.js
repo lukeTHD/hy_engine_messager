@@ -1,20 +1,13 @@
 import * as XMPP from 'stanza';
 import {
-    RTCPeerConnection,
     RTCIceCandidate,
-    RTCSessionDescription,
-    RTCView,
-    MediaStream,
-    MediaStreamTrack,
-    mediaDevices,
-    registerGlobals
+    RTCSessionDescription
 } from 'react-native-webrtc';
 
 import {sortDialogs} from '../actions/DialogAction';
 import {pushMessage} from "../actions/MessageAction";
 import {setMediaSession,setIncomingFlag,setStatus} from "../actions/ChatMediaAction";
-import {setCurrentUser} from "../actions/CurrentUserActions";
-import {getIdFromResource,getUserIdFromResource,getUserIdFromJID} from "../service/StanzaUtil";
+import {getUserIdFromResource,getUserIdFromJID} from "../service/StanzaUtil";
 import * as stanzaConst from './StanzaConst';
 import {Message} from '../models/Message';
 import {store} from '../store'
@@ -107,7 +100,7 @@ class StanzaService {
             dialogId:getUserIdFromResource(msg.from),
             _id : msg.id,
             createdAt:msg.delay?new Date(msg.delay.timestamp).getTime():Date.now() ,
-            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'https://static-staging.mektoube.fr/2/1782/__QMwMjM4cTM/1ITMdbc7ca50f454e089710827b328d7edb098c2b84680d80b4802e93edcfaca8b74344b2.jpg'}
+            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'https://static-staging.mektoube.fr/avatars/' + getUserIdFromResource(msg.from) + '.png'}
         });
         let msgBodyObj ;
         try{
@@ -154,7 +147,7 @@ class StanzaService {
             dialogId:getUserIdFromResource(msg.from),
             _id : msg.id,
             createdAt:msg.delay?new Date(msg.delay.timestamp).getTime():Date.now() ,
-            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'https://static-staging.mektoube.fr/2/1782/__QMwMjM4cTM/1ITMdbc7ca50f454e089710827b328d7edb098c2b84680d80b4802e93edcfaca8b74344b2.jpg'}
+            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'https://static-staging.mektoube.fr/avatars/' + getUserIdFromResource(msg.from) + '.png'}
         });
         console.log(this);
         if(msgBodyObj.type == stanzaConst.MSG_TYPE_TEXT){
@@ -176,13 +169,13 @@ class StanzaService {
             if(this.pc == null && !msg.delay){
                 this.navigation.navigate('chatMediaModal',{dialog:{dialogId:getUserIdFromResource(msg.from)},isIncoming:true,offer:msgBodyObj.text,offerType:msgBodyObj.type})
             }else{
-                msgObj = {...msgObj,text:"未接通话",system:true}
+                msgObj = {...msgObj,text:"Missed call",system:true}
                 store.dispatch(pushMessage(msgObj));
                 store.dispatch(sortDialogs(msgObj,1));
             }
         }else if(msgBodyObj.type == stanzaConst.MSG_TYPE_MEDIA_LEAVE){
             console.log("----> level");
-            msgObj = {...msgObj,text:"结束通话",system:true}
+            msgObj = {...msgObj,text:"End call",system:true}
             store.dispatch(pushMessage(msgObj));
             store.dispatch(sortDialogs(msgObj,1));
             this.pc.onicecandidate = null;

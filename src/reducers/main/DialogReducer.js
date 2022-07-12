@@ -8,13 +8,13 @@ import {
     DELETE_DIALOG,
     CLEAR_DIALOG
 } from '../../actions/DialogAction';
-import { createDialogByMessage,updateDialog,updateDialogUnread, sortedDialog } from '../ReducerUtil'
+import { createDialogByMessage,updateDialog,updateDialogUnread, sortedDialog, deleteDialog } from '../ReducerUtil'
 
 const initialState = {
     dialogs:[
         {
             name : '3980',
-            photo: 'https://static-staging.mektoube.fr/2/3/__AM4kzM/__gMe5ffe48636e976482a5ae8ee0f0e6cabdb9e2c21c0c542afdf7f5c9f2acc40e5eb830.jpg',
+            photo: 'https://static-staging.mektoube.fr/avatars/3980.png',
             dialogId : '3980',
             lastMessage: 'No message',
             lastMessageId: 'alkj2349jlajjk34',
@@ -25,7 +25,7 @@ const initialState = {
         },
         {
             name : '416500',
-            photo: 'https://static-staging.mektoube.fr/2/1782/__QMwMjM4cTM/1ITMdbc7ca50f454e089710827b328d7edb098c2b84680d80b4802e93edcfaca8b74344b2.jpg',
+            photo: 'https://static-staging.mektoube.fr/avatars/416500.png',
             dialogId : '416500',
             lastMessage: 'No message',
             lastMessageId: 'alkj2349jlajjk34',

@@ -2,7 +2,6 @@ import {handleActions} from 'redux-actions';
 import {
     SET_CURRENT_USER
 } from '../../actions/CurrentUserActions';
-import { fetchUsers } from '../ReducerUtil'
 const initialState = {
     user:{}
 };

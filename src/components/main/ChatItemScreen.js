@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Animated,Easing,Image,View,Text,TouchableOpacity} from 'react-native';
-import { Container, Content, Icon,List, ListItem, Left, Body, Right, Thumbnail } from 'native-base';
 import {
     Bubble,GiftedChat,Message,MessageText
 } from 'react-native-gifted-chat';
