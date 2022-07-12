@@ -1,0 +1,8 @@
+app_identifier("com.ltservices-video-call-poc") # The bundle identifier of your app
+apple_id("developer@opentechiz.com") # Your Apple email address
+
+itc_team_id("657670") # App Store Connect Team ID
+team_id("U289WPY3VE") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
