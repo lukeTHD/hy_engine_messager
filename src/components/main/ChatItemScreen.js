@@ -90,7 +90,7 @@ class ChatItemScreen extends Component {
 
                 <GiftedChat
                     alignTop
-                    placeholder="请输入信息"
+                    placeholder="Type here..."
                     messages={messageReducer.messages[route.params.dialog.dialogId]}
                     renderBubble={this.renderBubble}
                     renderMessage={this.renderMessage}

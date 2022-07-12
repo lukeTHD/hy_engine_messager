@@ -51,7 +51,6 @@ export const Login = (param) => async (dispatch, getState) => {
             stanzaService.client.xmppClient.disconnect();
         }
 
-
         stanzaService.config({username:userObj.jid,password:userObj.impwd});
         stanzaService.client.init({navigation});
         stanzaService.client.xmppClient.connect();

@@ -1,7 +1,7 @@
 const xmppConfig = {
     transports: {
         websocket: "wss://xmpp.mektou.be:5281/xmpp-websocket",
-        bosh :false
+        bosh :true
     },
     iceServers:[],
     host:"xmpp.mektou.be",

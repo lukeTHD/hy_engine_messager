@@ -22,7 +22,7 @@ class WelcomeScreen extends Component {
 
         return (
 
-            <SafeAreaView style={{backgroundColor:"#445566",flex:1,alignContent:"space-around",justifyContent:"space-around"}}>
+            <SafeAreaView style={{backgroundColor:"#7DB885",flex:1,alignContent:"space-around",justifyContent:"space-around"}}>
                     <View style={styles.container}>
                         <Image style={styles.imageSize} source={require('../../../assets/images/logo.png')}  />
                         {/*<ActivityIndicator*/}

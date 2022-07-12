@@ -107,7 +107,7 @@ class StanzaService {
             dialogId:getUserIdFromResource(msg.from),
             _id : msg.id,
             createdAt:msg.delay?new Date(msg.delay.timestamp).getTime():Date.now() ,
-            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'https://staging.mektoube.fr/images/svg/avatar-man-new.svg'}
+            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'https://static-staging.mektoube.fr/2/1782/__QMwMjM4cTM/1ITMdbc7ca50f454e089710827b328d7edb098c2b84680d80b4802e93edcfaca8b74344b2.jpg'}
         });
         let msgBodyObj ;
         try{
@@ -154,7 +154,7 @@ class StanzaService {
             dialogId:getUserIdFromResource(msg.from),
             _id : msg.id,
             createdAt:msg.delay?new Date(msg.delay.timestamp).getTime():Date.now() ,
-            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'https://staging.mektoube.fr/images/svg/avatar-man-new.svg'}
+            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'https://static-staging.mektoube.fr/2/1782/__QMwMjM4cTM/1ITMdbc7ca50f454e089710827b328d7edb098c2b84680d80b4802e93edcfaca8b74344b2.jpg'}
         });
         console.log(this);
         if(msgBodyObj.type == stanzaConst.MSG_TYPE_TEXT){

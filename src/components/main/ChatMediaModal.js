@@ -31,7 +31,7 @@ function ChatMediaModal(props) {
         hangOffSession} = props;
     const isIncoming = route.params.isIncoming || false;
     const mediaType = route.params.offerType;
-    const jid = route.params.dialog.dialogId+"@"+xmppConfig.host+"/mobile";
+    const jid = route.params.dialog.dialogId+"@"+xmppConfig.host + '/' + xmppConfig.resource;
 
     const bigView = useRef();
     const smallView = useRef();
@@ -247,7 +247,7 @@ function ChatMediaModal(props) {
             <Icon onPress={leave}
                   type="MaterialCommunityIcons" name="cancel" size={40}
                   color="red"/>
-            <Text style={{color:"white"}}>挂断</Text>
+            <Text style={{color:"white"}}>End</Text>
         </View>
     );
     let acceptButton = (
@@ -255,7 +255,7 @@ function ChatMediaModal(props) {
             <Icon onPress={accept}
                   type="MaterialCommunityIcons" name="check" size={40}
                   color="green"/>
-            <Text style={{color:"white"}}>接听</Text>
+            <Text style={{color:"white"}}>Accept</Text>
         </View>
     );
     let audioToggleButton =(
@@ -263,21 +263,21 @@ function ChatMediaModal(props) {
             <Icon type="MaterialCommunityIcons" name="microphone" size={40}
                   onPress={toggleAudio}
                   color="red"/>
-            <Text style={{color:"white"}}>语音</Text>
+            <Text style={{color:"white"}}>Voice</Text>
         </View>);
     let muteToggleButton =(
         <View style={[styles.circleIcon,{backgroundColor:isMute?"white":"transparent"}]}>
             <Icon type="MaterialCommunityIcons" name="volume-mute" size={40}
                   onPress={toggleMute}
                   color="green"/>
-            <Text style={{color:"green"}}>静音</Text>
+            <Text style={{color:"green"}}>Mute</Text>
         </View>)
     let louderSpeakerToggleButton = (
         <View style={[styles.circleIcon,{backgroundColor:isLoudSpeaker?"white":"transparent"}]}>
             <Icon type="MaterialCommunityIcons" name="volume-high" size={40}
                   onPress={toggleSpeaker}
                   color="red"/>
-            <Text style={{color:"red"}}>免提</Text>
+            <Text style={{color:"red"}}>Speaker</Text>
         </View>)
 
     if(status==DISCONNECT_STATUS) {//状态为未接通
@@ -294,7 +294,7 @@ function ChatMediaModal(props) {
                         <Icon onPress={leave}
                               type="MaterialCommunityIcons" name="phone-off-outline" size={40}
                               color="red"/>
-                        <Text style={{color:"white"}}>拒接</Text>
+                        <Text style={{color:"white"}}>Decline</Text>
                     </View>
                     {acceptButton}
                 </View>
@@ -316,7 +316,7 @@ function ChatMediaModal(props) {
                             <Icon onPress={switchCamera}
                                   type="MaterialCommunityIcons" name="video-switch" size={40}
                                   color="red"/>
-                            <Text style={{color:"red"}}>镜头</Text>
+                            <Text style={{color:"red"}}>Switch Camera</Text>
                         </View>
                     </View>
                 )
@@ -343,7 +343,7 @@ function ChatMediaModal(props) {
                         <Icon onPress={switchCamera}
                               type="MaterialCommunityIcons" name="video-switch" size={40}
                               color="red"/>
-                        <Text style={{color:"red"}}>镜头</Text>
+                        <Text style={{color:"red"}}>Switch Camera</Text>
                     </View>
                 </View>
             )

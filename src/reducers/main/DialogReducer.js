@@ -69,6 +69,13 @@ export default handleActions(
                 dialogs:result
             }
         },
+        [DELETE_DIALOG]: (state, action) => {
+            const result = deleteDialog(action, state.dialogs)
+            return {
+                ...state,
+                dialogs:result
+            }
+        },
 
     }, initialState)
 

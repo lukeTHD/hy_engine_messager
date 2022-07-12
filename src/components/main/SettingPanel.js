@@ -38,114 +38,17 @@ class SettingPanel extends Component {
         return (
             <Container>
                 <Content style={styles.container}>
-                    <List style={styles.list}>
-                        <Separator style={{height:40}} >
-                            <Text>Accounts</Text>
-                        </Separator>
-                        <ListItem icon onPress={()=>{}}>
-                            <Left>
-                                <Thumbnail small source={{ uri: 'http://myxxjs.com/assets/img/logo.png' }} />
-                            </Left>
-                            <Body>
-                            <Text style={{ fontSize: 14, color: '#777'}}>user2</Text>
-                            </Body>
-                            <Right>
-                                <Icon name="ios-chevron-forward" />
-                            </Right>
-                        </ListItem>
-                        <ListItem icon  last onPress={()=>{}}>
-
-                            <Body>
-                            <Text style={{ fontSize: 14, color: '#777'}}>add account</Text>
-                            </Body>
-                            <Right>
-                                <Icon name="ios-chevron-forward" />
-                            </Right>
-                        </ListItem>
-                        <Separator style={{height:40}} >
-                            <Text>Status</Text>
-                        </Separator>
-                        <ListItem icon last onPress={()=>{}}>
-
-                            <Body>
-                            <Text style={{ fontSize: 14, color: '#777'}}>Automatic</Text>
-                            </Body>
-                            <Right>
-                                <Icon name="ios-chevron-forward" />
-                            </Right>
-                        </ListItem>
-
-
-                        <Separator style={{height:40}} >
-                            <Text>Settings</Text>
-                        </Separator>
-                        <ListItem icon onPress={()=>{}}>
-
-                            <Body>
-                            <Text style={{ fontSize: 14, color: '#777'}}>Chats</Text>
-                            </Body>
-                            <Right>
-                                <Icon name="ios-chevron-forward" />
-                            </Right>
-                        </ListItem>
-                        <ListItem icon  onPress={()=>{}}>
-
-                            <Body>
-                            <Text style={{ fontSize: 14, color: '#777'}}>Contacts</Text>
-                            </Body>
-                            <Right>
-                                <Icon name="ios-chevron-forward" />
-                            </Right>
-                        </ListItem>
-                        <ListItem icon  onPress={()=>{}}>
-
-                            <Body>
-                            <Text style={{ fontSize: 14, color: '#777'}}>Notifications</Text>
-                            </Body>
-                            <Right>
-                                <Icon name="ios-chevron-forward" />
-                            </Right>
-                        </ListItem>
-                        <ListItem icon  onPress={()=>{}}>
-
-                            <Body>
-                            <Text style={{ fontSize: 14, color: '#777'}}>Experimental</Text>
-                            </Body>
-                            <Right>
-                                <Icon name="ios-chevron-forward" />
-                            </Right>
-                        </ListItem>
-                        <ListItem icon  onPress={()=>{}}>
-
-                            <Body>
-                            <Text style={{ fontSize: 14, color: '#777'}}>Media</Text>
-                            </Body>
-                            <Right>
-                                <Icon name="ios-chevron-forward" />
-                            </Right>
-                        </ListItem>
-                        <ListItem icon last onPress={()=>{}}>
-
-                            <Body>
-                            <Text style={{ fontSize: 14, color: '#777'}}>About</Text>
-                            </Body>
-                            <Right>
-                                <Icon name="ios-chevron-forward" />
-                            </Right>
-                        </ListItem>
-
-                    </List>
                     <Button full style={styles.button} onPress={this.exitApp}>
-                        <Text style={ styles.buttonTitle}>退出</Text>
+                        <Text style={ styles.buttonTitle}>Logout</Text>
                     </Button>
                 </Content>
 
                 {this.state.confirmModalVisible&& Alert.alert(
                 '',
-                '确认退出应用？',
+                'Are you sure？',
                 [
-                {text: '确定', onPress:this.onPressOk},
-                    {text: '取消',onPress:this.onPressCancel},
+                {text: 'Yes', onPress:this.onPressOk},
+                    {text: 'No',onPress:this.onPressCancel},
                 ],
                 )
                 }
