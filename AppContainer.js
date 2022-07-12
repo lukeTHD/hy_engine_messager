@@ -8,10 +8,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {AppState} from 'react-native';
 import {Button} from 'native-base';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-import localStorageKey from './src/util/LocalStorageKey'
-import {getItemValue,getItemObject,getAllKeys} from './src/util/LocalStorage'
 import {LoginScreen,ChatItemScreen,ChatMediaModal,ChatPanel,ContactPanel,SettingPanel,WelcomeScreen} from './src/components';
 import {store} from './src/store';
 import {updateDialogUnread} from './src/actions/DialogAction'
@@ -33,11 +29,6 @@ const BottomTabScreen = ()=>{
             <Tab.Screen name="Chat" component={ChatPanel} options={{
                 tabBarIcon: ({ color, size }) => (
                     <Icon name="ios-home" color={color} size={size} />
-                ),
-            }}/>
-            <Tab.Screen name="Contacts" component={ContactPanel} options={{
-                tabBarIcon: ({ color, size }) => (
-                    <Icon name="ios-person" color={color} size={size} />
                 ),
             }}/>
             <Tab.Screen name="Settings" component={SettingPanel} options={{

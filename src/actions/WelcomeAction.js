@@ -21,7 +21,7 @@ export const show = (props) => async (dispatch) =>  {
         if (accessToken) {
             const userObj = {accessToken, status , userId , userName, jid, impwd}
             await setItemObject(LocalStorageKey.USER,userObj);
-            dispatch(setCurrentUser({...userObj,avatar: userObj.avatar}));
+            await dispatch(setCurrentUser({...userObj,avatar: userObj.avatar}));
             await dispatch(deleteDialog(userId));
             stanzaService.config({username:userObj.jid,password:userObj.impwd});
             stanzaService.client.init(props.navigation);

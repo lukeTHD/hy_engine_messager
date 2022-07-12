@@ -1,4 +1,4 @@
-package com.hy_engine_messager;
+package com.ltservices_video_call_poc;
 
 import android.app.Application;
 import android.content.Context;
@@ -63,7 +63,7 @@ public class MainApplication extends Application implements ReactApplication {
          We use reflection here to pick up the class that initializes Flipper,
         since Flipper library is not available in release mode
         */
-        Class<?> aClass = Class.forName("com.hy_engine_messager.ReactNativeFlipper");
+        Class<?> aClass = Class.forName("com.ltservices_video_call_poc.ReactNativeFlipper");
         aClass
             .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
             .invoke(null, context, reactInstanceManager);

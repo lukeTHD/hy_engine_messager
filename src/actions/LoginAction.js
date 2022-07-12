@@ -3,6 +3,7 @@ import {clearMessage} from './MessageAction';
 import {getItemObject,setItemObject,getAllKeys} from '../util/LocalStorage';
 import LocalStoragekey from '../util/LocalStorageKey';
 import {setCurrentUser} from './CurrentUserActions';
+import {deleteDialog} from './DialogAction';
 import stanzaService from '../service'
 // import createAction from "redux-actions/es/createAction";
 
@@ -31,21 +32,13 @@ export const Login = (param) => async (dispatch, getState) => {
             impwd : password,
             avatar: avatar,
         }
-        const localStorageUser = await getItemObject(LocalStoragekey.USER);
-        dispatch(setCurrentUser(userObj));
-        if(localStorageUser) {
-            if (localStorageUser.jid && localStorageUser.jid == userObj.jid) {
-                //缓存用户信息与新用户信息一致
-            } else {
-                //不一致清除redux-persist
-                dispatch(clearDialog());
-                dispatch(clearMessage());
-            }
-        }
-        await setItemObject(LocalStoragekey.USER,userObj);
         if(stanzaService.client && stanzaService.client.xmppClient){
             stanzaService.client.xmppClient.disconnect();
         }
+        
+        await setItemObject(LocalStoragekey.USER,userObj);
+        await dispatch(setCurrentUser(userObj));
+        await dispatch(deleteDialog(userObj.userId));
 
         stanzaService.config({username:userObj.jid,password:userObj.impwd});
         stanzaService.client.init({navigation});
@@ -68,6 +61,10 @@ export const cleanLogin = (props) => async (dispatch, getState) => {
         userName : user.userName,
         jid :user.jid,
         impwd : user.impwd,
+    }
+
+    if(stanzaService.client && stanzaService.client.xmppClient){
+        stanzaService.client.xmppClient.disconnect();
     }
 
     await setItemObject(LocalStoragekey.USER,userObj);

@@ -77,6 +77,7 @@ class StanzaService {
         console.log('XMPP Client is online ',msg);
         console.log(this);
         this.isConnected =true;
+        
     }
     sessionStartListener(){
         this.sendPresence();

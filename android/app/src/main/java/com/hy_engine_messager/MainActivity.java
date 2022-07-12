@@ -1,4 +1,4 @@
-package com.hy_engine_messager;
+package com.ltservices_video_call_poc;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "hy_engine_messager";
+    return "ltservices_video_call_poc";
   }
 }

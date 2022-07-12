@@ -25,7 +25,9 @@ const updateDialog = (action, dialogs) => {
 
 const deleteDialog = (action, dialogs) => {
   const dialogIndex =dialogs.findIndex(elem => elem.dialogId==action.dialogId);
-  dialogs.splice(dialogIndex,1);
+  if(dialogIndex >= 0){
+    dialogs.splice(dialogIndex,1);
+  }
   return dialogs
 }
 

@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface hy_engine_messagerTests : XCTestCase
+@interface ltservices_video_call_pocTests : XCTestCase
 
 @end
 
-@implementation hy_engine_messagerTests
+@implementation ltservices_video_call_pocTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

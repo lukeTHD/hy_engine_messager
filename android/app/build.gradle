@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.hy_engine_messager"
+        applicationId "com.ltservices_video_call_poc"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

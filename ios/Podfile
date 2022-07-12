@@ -3,13 +3,13 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '11.0'
 
-target 'hy_engine_messager' do
+target 'ltservices_video_call_poc' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
 
 
-  target 'hy_engine_messagerTests' do
+  target 'ltservices_video_call_pocTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -21,14 +21,5 @@ target 'hy_engine_messager' do
   use_flipper!({ 'Flipper' => '0.95.0' })
   post_install do |installer|
     flipper_post_install(installer)
-  end
-end
-
-target 'hy_engine_messager-tvOS' do
-  # Pods for hy_engine_messager-tvOS
-
-  target 'hy_engine_messager-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
   end
 end
