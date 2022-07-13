@@ -26,9 +26,10 @@ function ChatMediaModal(props) {
     const CONNECTED_STATUS =3;
     const {navigation,route,messageReducer,dialogReducer,chatMediaReducer,
         hangOffSession} = props;
+    console.log(route)
     const isIncoming = route.params.isIncoming || false;
     const mediaType = route.params.offerType;
-    const jid = route.params.dialog.dialogId+"@"+xmppConfig.host + '/' + xmppConfig.resource;
+    const jid =  route.params.dialog.jid || route.params.dialog.dialogId+"@"+xmppConfig.host;
 
     const bigView = useRef();
     const smallView = useRef();
@@ -132,7 +133,7 @@ function ChatMediaModal(props) {
                     video: {
                         width: width,
                         height: height,
-                        frameRate: 30,
+                        frameRate: 60,
                         facingMode: ("user")
                     }
                 }

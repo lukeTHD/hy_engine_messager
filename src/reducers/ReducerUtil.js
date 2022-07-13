@@ -2,14 +2,16 @@ import Dialog from '../models/Dialog';
 const createDialogByMessage = (action)=>{
     const { dialog, count } = action;
     const newObj = {
-        name : 'user' + dialog.userId,
+        name : dialog.userId,
         photo: 'https://static-staging.mektoube.fr/avatars/' + dialog.userId + '.png',
+        dialogId: dialog.userId,
         userId : dialog.userId,
         lastMessage: dialog.body,
         lastMessageId: dialog.id,
         lastMessageDateSent: dialog.dateSent || Date.now()/1000,
         createdAt: dialog.dateSent||Date.now()/1000,
         unreadMessagesCount: count ||1,
+        jid: dialog.jid||'',
         unreadMessagesIds : dialog.id ? [dialog.id]:[]
     }
     return new Dialog(newObj);
@@ -57,6 +59,7 @@ const sortedDialog = (action, dialogs) => {
     if(dialogIndex>=0){
         const newObj = {
             lastMessage: message.text,
+            jid: message.user.jid,
             lastMessageDateSent: message.createdAt,
             createdAt: message.createdAt,
             unreadMessagesCount:  count ?dialogs[dialogIndex].unreadMessagesCount+1:dialogs[dialogIndex].unreadMessagesCount
@@ -71,6 +74,7 @@ const sortedDialog = (action, dialogs) => {
             dialogId : message.dialogId,
             lastMessage: message.text,
             lastMessageId: message._id,
+            jid: message.user.jid,
             lastMessageDateSent: message.createdAt || Date.now(),
             createdAt: message.createdAt||Date.now(),
             unreadMessagesCount: 1,

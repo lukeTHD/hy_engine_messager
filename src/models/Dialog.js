@@ -6,6 +6,7 @@ export default class Dialog {
     this.photo = dialog.photo;
     this.description = dialog.description;
     this.userId = dialog.userId;
+    this.jid = dialog.jid;
     this.dialogId = dialog.dialogId;
     this.createdAt =  Date.now();
     this.lastMessageDateSent = dialog.lastMessageDateSent || dialog.createdAt/1000 ||Date.now()/ 1000

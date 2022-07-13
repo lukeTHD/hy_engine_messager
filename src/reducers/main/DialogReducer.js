@@ -16,22 +16,26 @@ const initialState = {
             name : '3980',
             photo: 'https://static-staging.mektoube.fr/avatars/3980.png',
             dialogId : '3980',
+            userId: '3980',
             lastMessage: 'No message',
             lastMessageId: 'alkj2349jlajjk34',
             lastMessageDateSent: 1605144573228,
             createdAt: 1605144573228,
             unreadMessagesCount: 0,
+            jid: '',
             unreadMessagesIds : []
         },
         {
             name : '416500',
             photo: 'https://static-staging.mektoube.fr/avatars/416500.png',
             dialogId : '416500',
+            userId: '416500',
             lastMessage: 'No message',
             lastMessageId: 'alkj2349jlajjk34',
             lastMessageDateSent: 1605144573228,
             createdAt: 1605144573228,
             unreadMessagesCount: 0,
+            jid: '',
             unreadMessagesIds : []
         }
     ]

@@ -4,7 +4,7 @@ import {
     RTCSessionDescription
 } from 'react-native-webrtc';
 
-import {sortDialogs} from '../actions/DialogAction';
+import {sortDialogs, updateDialog} from '../actions/DialogAction';
 import {pushMessage} from "../actions/MessageAction";
 import {setMediaSession,setIncomingFlag,setStatus} from "../actions/ChatMediaAction";
 import {getUserIdFromResource,getUserIdFromJID} from "../service/StanzaUtil";
@@ -20,7 +20,6 @@ class StanzaService {
         console.log(xmppConfig);
         this.xmppClient = XMPP.createClient({
             transports:xmppConfig.transports,
-            resource: xmppConfig.resource,
             jid: username+"@"+xmppConfig.host,
             username: username,
             password: password,
@@ -101,7 +100,7 @@ class StanzaService {
             dialogId:getUserIdFromResource(msg.from),
             _id : msg.id,
             createdAt:msg.delay?new Date(msg.delay.timestamp).getTime():Date.now() ,
-            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'https://static-staging.mektoube.fr/avatars/' + getUserIdFromResource(msg.from) + '.png'}
+            user:{_id:getUserIdFromResource(msg.from),jid:msg.from,name:getUserIdFromResource(msg.from),avatar:'https://static-staging.mektoube.fr/avatars/' + getUserIdFromResource(msg.from) + '.png'}
         });
         let msgBodyObj ;
         try{
@@ -148,9 +147,14 @@ class StanzaService {
             dialogId:getUserIdFromResource(msg.from),
             _id : msg.id,
             createdAt:msg.delay?new Date(msg.delay.timestamp).getTime():Date.now() ,
-            user:{_id:getUserIdFromResource(msg.from),name:getUserIdFromResource(msg.from),avatar:'https://static-staging.mektoube.fr/avatars/' + getUserIdFromResource(msg.from) + '.png'}
+            user:{_id:getUserIdFromResource(msg.from),jid:msg.from,name:getUserIdFromResource(msg.from),avatar:'https://static-staging.mektoube.fr/avatars/' + getUserIdFromResource(msg.from) + '.png'}
         });
         console.log(this);
+        store.dispatch(updateDialog({
+            userId : msgObj.dialogId,
+            dialogId: msgObj.dialogId,
+            jid: msg.from
+        }));
         if(msgBodyObj.type == stanzaConst.MSG_TYPE_TEXT){
             msgObj = {...msgObj,text:msgBodyObj.text}
             console.log(msgObj);
@@ -168,7 +172,7 @@ class StanzaService {
         }else if(msgBodyObj.type == stanzaConst.MSG_TYPE_MEDIA_AUDIO_OFFER || msgBodyObj.type == stanzaConst.MSG_TYPE_MEDIA_VIDEO_OFFER){
 
             if(this.pc == null && !msg.delay){
-                this.navigation.navigate('chatMediaModal',{dialog:{dialogId:getUserIdFromResource(msg.from)},isIncoming:true,offer:msgBodyObj.text,offerType:msgBodyObj.type})
+                this.navigation.navigate('chatMediaModal',{dialog:{dialogId:getUserIdFromResource(msg.from), jid : msg.from},isIncoming:true,offer:msgBodyObj.text,offerType:msgBodyObj.type})
             }else{
                 msgObj = {...msgObj,text:"Missed call",system:true}
                 store.dispatch(pushMessage(msgObj));
@@ -204,6 +208,7 @@ class StanzaService {
     }
     messageSentListener(msg){
         console.log("Message Sent>> ")
+        console.log(this)
         if(msg.receipt){
             //自动回复收到信息
         }else{
@@ -214,6 +219,7 @@ class StanzaService {
                 createdAt:Date.now(),
                 user:store.getState().CurrentUserReducer.user
             });
+            msgObj.user.jid = this.jid
             let msgBodyObj ;
             try{
                 msgBodyObj =JSON.parse(msg.body)

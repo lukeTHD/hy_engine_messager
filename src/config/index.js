@@ -1,11 +1,11 @@
 const xmppConfig = {
     transports: {
         websocket: "wss://xmpp.mektou.be:5281/xmpp-websocket",
-        bosh :true
+        bosh :false
     },
     iceServers:[],
-    host:"xmpp.mektou.be",
-    resource:"rna-stanza"
+    autoReconnect: true,
+    host:"xmpp.mektou.be"
 }
 
 const apiHost = "https://apiv2-staging.mektoube.fr"
