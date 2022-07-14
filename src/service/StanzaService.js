@@ -98,7 +98,7 @@ class StanzaService {
         console.log(msg)
         let msgObj = new Message({
             dialogId:getUserIdFromResource(msg.from),
-            _id : msg.id,
+            _id : msg.id + Date.now().toString(),
             createdAt:msg.delay?new Date(msg.delay.timestamp).getTime():Date.now() ,
             user:{_id:getUserIdFromResource(msg.from),jid:msg.from,name:getUserIdFromResource(msg.from),avatar:'https://static-staging.mektoube.fr/avatars/' + getUserIdFromResource(msg.from) + '.png'}
         });
@@ -145,7 +145,7 @@ class StanzaService {
         }
         let msgObj = new Message({
             dialogId:getUserIdFromResource(msg.from),
-            _id : msg.id,
+            _id : msg.id + Date.now().toString(),
             createdAt:msg.delay?new Date(msg.delay.timestamp).getTime():Date.now() ,
             user:{_id:getUserIdFromResource(msg.from),jid:msg.from,name:getUserIdFromResource(msg.from),avatar:'https://static-staging.mektoube.fr/avatars/' + getUserIdFromResource(msg.from) + '.png'}
         });
@@ -215,7 +215,7 @@ class StanzaService {
             //计入reducer
             let msgObj = new Message({
                 dialogId:getUserIdFromJID(msg.to),
-                _id : msg.id,
+                _id : msg.id + Date.now().toString(),
                 createdAt:Date.now(),
                 user:store.getState().CurrentUserReducer.user
             });
